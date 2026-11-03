@@ -9,8 +9,9 @@ Static HTML, CSS and JavaScript. No build step or dependencies. GitHub Pages ser
 - `index.html`: research, biography, teaching, software cards and contact.
 - `content.js`: publication references and DOI links.
 - `site.js`: application dialogs, figure enlargement, publication filters, citation copying and navigation.
-- `styles.css`: desktop and mobile layouts.
-- `assets/`: photographs, supplied application logos, scientific figure, public CV and conceptual SVG illustrations.
+- `styles.css` provides the base styles. `atlas.css` styles the current homepage, plates, landmarks and transitions.
+- `atlas.js` defines the illustrated scales, landmarks, related papers and searchable site index.
+- `assets/`: photographs, supplied application logos, scientific figure, public CV and the three field atlas WebP illustrations.
 
 ## Preview locally
 
@@ -22,7 +23,7 @@ Open http://localhost:8000/.
 
 ## Interactive features
 
-Research-scale selector, expandable research methods, full-size experimental figure, four application detail sheets, publication filters by type/year/text, citation copying, reading progress and back-to-top navigation. Keyboard interaction, dialog Escape support and reduced-motion preferences are respected.
+Illustrated scale selector with keyboard arrows, zoomable plates and selectable landmarks, a searchable index (press `/`), expandable research methods, full-size experimental figure, four application detail sheets, publication filters by type/year/text, citation copying, reading progress and back-to-top navigation. Keyboard interaction, dialog Escape support and reduced-motion preferences are respected.
 
 MAMIR is a private beta. NEMIR uses the author-supplied logo; its repository and technical description will be added when available. Public software links do not imply that every project is open source.
 

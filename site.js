@@ -152,29 +152,6 @@ async function copyCitation(text) {
   }
 }
 
-const scaleText = {
-  molecules: ['MOLECULES', 'How receptor interactions shape neuronal signaling and plasticity.'],
-  circuits: ['CIRCUITS', 'How cerebellar activity relates to learning, reward and motivation.'],
-  behavior: ['BEHAVIOR', 'How experience changes movement and motivated behavior.']
-};
-document.querySelectorAll('[data-scale]').forEach(button => button.addEventListener('click', () => {
-  document.querySelectorAll('[data-scale]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
-  const [label, description] = scaleText[button.dataset.scale];
-  const target = document.querySelector('#scale-description');
-  const span = document.createElement('span'); span.textContent = label;
-  target.replaceChildren(span,document.createTextNode(description));
-}));
-
-const stage = document.querySelector('.neural-stage');
-if (window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
-  stage.addEventListener('pointermove', event => {
-    const bounds = stage.getBoundingClientRect();
-    stage.style.setProperty('--art-x', `${(event.clientX - bounds.left - bounds.width / 2) * .012}px`);
-    stage.style.setProperty('--art-y', `${(event.clientY - bounds.top - bounds.height / 2) * .025}px`);
-  });
-  stage.addEventListener('pointerleave', () => { stage.style.setProperty('--art-x','0px'); stage.style.setProperty('--art-y','0px'); });
-}
-
 const figureDialog = document.querySelector('#figure-dialog');
 document.querySelector('#figure-open').addEventListener('click', () => figureDialog.showModal());
 const softwareDetails = {
