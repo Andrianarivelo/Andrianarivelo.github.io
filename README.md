@@ -10,6 +10,7 @@ Static HTML, CSS and JavaScript. No build step or dependencies. GitHub Pages ser
 - `content.js`: publication references and DOI links.
 - `site.js`: application dialogs, figure enlargement, publication filters, citation copying and navigation.
 - `styles.css` provides the base styles. `atlas.css` styles the current homepage, plates, landmarks and transitions.
+- `methods.js` and `methods.css` implement the schematic reach replay, synthetic photometry alignment demo and user-controlled atlas tour.
 - `atlas.js` defines the illustrated scales, landmarks, related papers and searchable site index.
 - `assets/`: photographs, supplied application logos, scientific figure, public CV and the three field atlas WebP illustrations.
 

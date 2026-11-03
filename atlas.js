@@ -126,6 +126,8 @@ const entries = [
   { kind: 'Section', name: 'About and teaching', url: '#about' },
   { kind: 'Section', name: 'Contact', url: '#contact' },
   { kind: 'File', name: 'Curriculum vitae (PDF)', url: './assets/Andry_Andrianarivelo_CV.pdf' },
+  { kind: 'Demo', name: 'Reach replay', keywords: 'paw trajectory kinematics animation playground', url: '#reach-replay' },
+  { kind: 'Demo', name: 'Signal alignment', keywords: 'fiber photometry reach onset mean trace playground', url: '#signal-alignment' },
   ...Object.entries(softwareDetails).map(([key, tool]) => ({
     kind: 'Software', name: tool.name, keywords: tool.category + ' ' + tool.summary, toolKey: key
   })),

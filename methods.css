@@ -1,0 +1,85 @@
+/* User-controlled motion for the field atlas. */
+.atlas-head { flex-wrap: wrap; }
+#atlas-tour { margin-left: auto; margin-right: 4px; border: 1px solid #46594e; border-radius: 15px; padding: 5px 11px; background: #17231b; color: #d2ebd9; font: 10px/1.3 var(--mono); }
+#atlas-tour::before { content: "▷"; margin-right: 6px; }
+#atlas-tour[aria-pressed=true]::before { content: "□"; }
+#atlas-tour:hover { border-color: #a7d6b7; }
+.atlas-head { position: relative; }
+.atlas.tour-running .atlas-head::after { content: ""; position: absolute; inset: auto 0 -1px; height: 2px; background: var(--tint); transform-origin: left; pointer-events: none; z-index: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .atlas.tour-running .atlas-head::after { animation: plate-time 4.2s linear 3; }
+  @keyframes plate-time { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+.hero-actions { flex-wrap: wrap; row-gap: 10px; }
+.bench-hero-link { color: #c3e7ce; }
+.bench-section { padding-top: clamp(52px,6vw,88px); scroll-margin-top: 9px; }
+.bench-heading { align-items: end; margin-bottom: 22px; }
+.bench-heading .eyebrow { margin-bottom: 12px; }
+.bench-tabs { display: inline-flex; flex-wrap: wrap; gap: 3px; padding: 4px; border: 1px solid #33453a; border-radius: 9px; background: #101713; margin-bottom: 13px; }
+.bench-tabs button { min-height: 38px; display: inline-flex; align-items: center; gap: 9px; padding: 6px 14px; color: #aab6ae; border: 1px solid transparent; background: none; border-radius: 5px; font: inherit; font-size: 13px; }
+.bench-tabs small, .bench-kicker, .bench-readout, .bench-display-head > span { font-family: var(--mono); }
+.bench-tabs small { opacity: .75; font-size: 10px; }
+.bench-tabs [aria-selected=true] { color: #def1e4; border-color: #405447; background: #243429; }
+.bench-tabs button:hover { color: white; }
+.bench-panel { display: grid; grid-template-columns: minmax(240px,.72fr) minmax(0,1.28fr); gap: clamp(20px,3.4vw,55px); padding: clamp(20px,2.9vw,41px); border: 1px solid #36453b; border-radius: 14px; background: radial-gradient(ellipse at 0 0,#1e3026aa,transparent 60%),#0e1511; align-items: center; }
+.bench-panel[hidden], #methods-bench[hidden], #atlas-tour[hidden] { display: none; }
+.bench-panel#signal-alignment { border-color: #434451; background: radial-gradient(ellipse at 0 0,#292537aa,transparent 60%),#101215; }
+.bench-guide { min-width: 0; }
+.bench-kicker { margin: 0 0 12px; font-size: 10px; letter-spacing: .13em; color: #a9cfb7; }
+#signal-alignment .bench-kicker { color: #c0b8e3; }
+.bench-guide h3 { margin: 0 0 13px; font: 400 clamp(25px,2.4vw,37px)/1.08 var(--serif); letter-spacing: -.035em; color: #edf3e9; }
+.bench-guide > p:not(.bench-kicker) { color: #b2bdb4; max-width: 37ch; font-size: 14px; line-height: 1.65; margin: 0 0 14px; }
+.bench-jumps, .bench-switch { display: flex; flex-wrap: wrap; gap: 6px; }
+.bench-jumps button, .bench-switch button, #mean-toggle, .bench-play { border-radius: 5px; padding: 7px 10px; background: #111813; border: 1px solid #405146; color: #cccfc9; font-size: 12px; }
+.bench-jumps [aria-pressed=true], .bench-switch [aria-pressed=true] { background: #29392e; border-color: #85ae92; color: #edfff0; }
+.bench-jumps button:hover, .bench-switch button:hover, #mean-toggle:hover { border-color: #a4baa9; }
+.bench-study { display: table; color: #bfe0c8; font-size: 12px; margin-top: 16px; text-underline-offset: 4px; }
+.bench-study:hover { text-decoration: underline; }
+#mean-toggle { display: flex; align-items: center; gap: 9px; background: transparent; padding: 6px 0; border: 0; margin-top: 7px; }
+#mean-toggle i { display: inline-grid; place-items: center; width: 15px; height: 15px; border: 1px solid #8b839e; border-radius: 3px; }
+#mean-toggle[aria-pressed=true] i { background: #ead6ac; color: #171419; border-color: #ead6ac; }
+#mean-toggle[aria-pressed=true] i::before { content: "✓"; font: bold 11px/1 sans-serif; }
+.bench-instrument { min-width: 0; border: 1px solid #34463b; border-radius: 10px; background: #0b120f; overflow: hidden; }
+#signal-alignment .bench-instrument { background: #101115; border-color: #3c3b46; }
+.bench-display-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px; border-bottom: 1px solid #ffffff18; }
+.bench-display-head strong { color: #e2e8dc; font-size: 13px; font-weight: 550; }
+.bench-display-head small { font-size: 11px; color: #bac2bb; font-weight: 400; }
+.bench-display-head > span { color: #a9b5ae; text-transform: uppercase; letter-spacing: .07em; font-size: 9px; }
+.bench-chart { display: block; width: 100%; height: auto; }
+.bench-axis { fill: none; stroke: #657569; stroke-opacity: .42; }
+.chart-label { font-family: var(--mono); font-size: 13px; fill: #b8c5ba; }
+.reach-rungs { fill: #43574b; stroke: #90a595; stroke-width: 1; }
+.bench-controls { padding: 11px 14px; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; border-top: 1px solid #ffffff18; }
+.bench-play { color: #122018; font-weight: 600; background: #c9e7d2; border-color: #bfdcc7; min-width: 80px; }
+.bench-play:hover { background: #e3f3e5; }
+.bench-scrub { display: flex; min-width: 0; }
+.bench-scrub input { accent-color: #afdebf; width: 100%; min-width: 0; height: 28px; cursor: pointer; }
+.bench-readout { color: #c4d2c6; font-size: 10px; min-width: 112px; text-align: right; }
+.trial-trace { stroke: #b5a6e4; stroke-width: 1.6; opacity: .62; fill: none; }
+.mean-trace { stroke: #f2d497; stroke-width: 3; fill: none; stroke-linejoin: round; }
+.event-mark { stroke: #d2c2f1; stroke-width: 2; }
+.signal-note { border-top: 1px solid #ffffff18; margin: 0; padding: 12px 16px; color: #c5c0d3; font-size: 12px; line-height: 1.6; }
+@media (prefers-reduced-motion: no-preference) {
+  .bench-panel:not([hidden]) .bench-guide { animation: bench-enter .32s ease-out; }
+  @keyframes bench-enter { from { opacity: .55; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+}
+@media (min-width:701px) and (max-width:920px) {
+  #navigation, .nav-wrap { gap: 10px; }
+  .index-launch kbd { display: none; }
+}
+@media (max-width:760px) {
+  .bench-panel { grid-template-columns: 1fr; gap: 18px; padding: 18px; }
+  .bench-heading .section-intro { margin-top: 12px; }
+  .bench-guide > p:not(.bench-kicker) { max-width: 55ch; }
+  .bench-readout { min-width: 98px; }
+}
+@media (max-width:480px) {
+  .hero-actions { column-gap: 15px; }
+  .bench-tabs { display: flex; }
+  .bench-tabs button { flex: 1; min-height: 42px; padding: 6px 4px; justify-content: center; }
+  .bench-panel { padding: 14px; }
+  .bench-chart .chart-label { font-size: 19px; }
+  .bench-controls { grid-template-columns: auto 1fr; gap: 4px 9px; }
+  .bench-readout { grid-column: 2; }
+  .bench-jumps button, .bench-switch button { min-height: 40px; }
+}

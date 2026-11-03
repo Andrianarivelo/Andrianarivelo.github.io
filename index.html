@@ -18,7 +18,9 @@
   <link rel="stylesheet" href="./atlas.css?v=1">
   <script src="./content.js" defer></script>
   <script src="./site.js?v=atlas1" defer></script>
-  <script src="./atlas.js?v=1" defer></script>
+  <script src="./atlas.js?v=bench1" defer></script>
+  <link rel="stylesheet" href="./methods.css?v=1">
+  <script src="./methods.js?v=1" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Andry Andrianarivelo","jobTitle":"Maître de conférences in neuroscience","affiliation":{"@type":"CollegeOrUniversity","name":"Université Paris Cité"},"sameAs":["https://orcid.org/0000-0002-6369-4201","https://github.com/Andrianarivelo"],"knowsAbout":["Neuroscience","Cerebellum","Learning","Dopamine","Addiction"]}</script>
 </head>
 <body>
@@ -30,7 +32,7 @@
       <button class="index-launch" type="button" aria-haspopup="dialog" aria-label="Open site index"><span class="search-symbol" aria-hidden="true"></span><span>Index</span><kbd>/</kbd></button>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button>
       <nav id="navigation" aria-label="Main navigation">
-        <a href="#research">Research</a><a href="#publications">Publications</a><a href="#software">Software</a><a href="#about">About</a><a class="nav-contact" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+        <a href="#research">Research</a><a href="#playground">Demos</a><a href="#publications">Publications</a><a href="#software">Software</a><a href="#about">About</a><a class="nav-contact" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
@@ -44,10 +46,10 @@
           </figure>
           <h1 id="hero-title">From molecules<br><em>to behavior.</em></h1>
           <p class="cover-intro">I study how neural circuits shape learning and motivation, from the receptors that carry a signal to the movements an animal learns.</p>
-          <div class="hero-actions"><a class="button primary" href="#research">Explore my research <span aria-hidden="true">↓</span></a><a class="text-link" href="./assets/Andry_Andrianarivelo_CV.pdf" download>Download CV <span aria-hidden="true">↧</span></a></div>
+          <div class="hero-actions"><a class="button primary" href="#research">Explore my research <span aria-hidden="true">↓</span></a><a class="text-link bench-hero-link" href="#playground">Try a demo <span aria-hidden="true">→</span></a><a class="text-link" href="./assets/Andry_Andrianarivelo_CV.pdf" download>Download CV <span aria-hidden="true">↧</span></a></div>
         </div>
         <article class="atlas" id="atlas" aria-labelledby="atlas-name" data-palette="circuits">
-          <header class="atlas-head"><h2 id="atlas-name"><i class="atlas-mark" aria-hidden="true"></i> Field atlas</h2><span id="plate-number">PLATE 02 / 03</span></header>
+          <header class="atlas-head"><h2 id="atlas-name"><i class="atlas-mark" aria-hidden="true"></i> Field atlas</h2><button type="button" id="atlas-tour" hidden>Play tour</button><span id="plate-number">PLATE 02 / 03</span></header>
           <button id="inspect-plate" type="button" class="atlas-plate" aria-label="Inspect the Purkinje cell illustration" aria-haspopup="dialog">
             <img id="plate-art" width="1280" height="960" src="./assets/atlas-circuit.webp" fetchpriority="high" alt="A pale, fan-shaped Purkinje cell arbor on a dark background">
             <span class="inspect-tag"><span aria-hidden="true">⛶</span> Inspect plate</span>
@@ -61,6 +63,67 @@
         </article>
       </div>
       <div class="field-strip"><span>RESEARCH THEMES</span><a href="#learning">Cerebellar learning</a><i aria-hidden="true">/</i><a href="#reward">Reward &amp; motivation</a><i aria-hidden="true">/</i><a href="#signaling">Receptor signaling</a></div>
+    </section>
+    <section class="container bench-section" id="playground" aria-labelledby="bench-heading">
+      <div class="section-heading bench-heading">
+        <div><p class="eyebrow"><span class="status-dot"></span> INTERACTIVE METHODS</p><h2 id="bench-heading">Methods playground.</h2></div>
+        <p class="section-intro">Trace a paw through a reach, then see what changes when you line up neural signals to the same event.</p>
+      </div>
+      <noscript><p>Enable JavaScript to explore the two simulations. <a href="#research">Read about the research below.</a></p></noscript>
+      <div id="methods-bench" hidden>
+        <div class="bench-tabs" role="tablist" aria-label="Choose a method">
+          <button id="tab-reach" type="button" role="tab" aria-selected="true" aria-controls="reach-replay"><small>01</small> Reach replay</button>
+          <button id="tab-signal" type="button" role="tab" aria-selected="false" aria-controls="signal-alignment" tabindex="-1"><small>02</small> Signal alignment</button>
+        </div>
+        <article id="reach-replay" class="bench-panel" role="tabpanel" aria-labelledby="tab-reach">
+          <div class="bench-guide">
+            <p class="bench-kicker">01 / MOVEMENT TRACKING</p><h3>Follow the forepaw.</h3>
+            <p>Play a schematic reach between two rungs. Drag the playhead to inspect one moment or jump straight to a landmark.</p>
+            <div class="bench-jumps" role="group" aria-label="Jump to a reach landmark"><button type="button" data-frame="0">Lift-off</button><button type="button" data-frame="50">Peak height</button><button type="button" data-frame="100">Contact</button></div>
+            <a class="bench-study" href="https://doi.org/10.1038/s41467-026-74823-1" target="_blank" rel="noopener noreferrer">Read the LocoReach study ↗</a>
+          </div>
+          <div class="bench-instrument">
+            <div class="bench-display-head"><strong>Paw trajectory</strong><span>Schematic motion</span></div>
+            <svg class="bench-chart" viewBox="0 0 600 240" role="img" aria-labelledby="reach-plot-title">
+              <title id="reach-plot-title">Side view of a simulated forepaw moving along a curved path between two rungs</title>
+              <defs><pattern id="reach-grid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#3b5149"/></pattern></defs>
+              <rect width="600" height="240" fill="url(#reach-grid)"/>
+              <g class="bench-axis"><path d="M44 183H556"/><path d="M45 40v143" stroke-dasharray="2 6"/></g>
+              <g class="reach-rungs"><rect x="64" y="183" width="74" height="12" rx="5"/><rect x="462" y="183" width="74" height="12" rx="5"/></g>
+              <g class="chart-label"><text x="101" y="218" text-anchor="middle">Rung A</text><text x="499" y="218" text-anchor="middle">Rung B</text></g>
+              <path id="reach-route" d="M101 180 Q300 -70 499 180" fill="none" stroke="#637e70" stroke-width="2.2" stroke-dasharray="4 7"/>
+              <path id="reach-trail" d="M101 180 Q300 -70 499 180" fill="none" stroke="#a6dfc2" stroke-width="3.5" pathLength="100" stroke-dasharray="0 100"/>
+              <g id="reach-point" transform="translate(101 180)"><circle r="14" fill="#bcebd7" opacity=".16"/><circle r="6" fill="#d4ffe8" stroke="#385d4a" stroke-width="2"/></g>
+            </svg>
+            <div class="bench-controls">
+              <button type="button" id="reach-play" class="bench-play">Play reach</button>
+              <label class="bench-scrub"><span class="sr-only">Reach progress</span><input type="range" id="reach-progress" min="0" max="100" step="1" value="0"></label>
+              <span id="reach-readout" class="bench-readout">0% · Lift-off</span>
+            </div>
+          </div>
+        </article>
+        <article id="signal-alignment" class="bench-panel" role="tabpanel" aria-labelledby="tab-signal" hidden>
+          <div class="bench-guide">
+            <p class="bench-kicker">02 / FIBER PHOTOMETRY</p><h3>Give six trials a common clock.</h3>
+            <p>Each synthetic trial contains a fluorescence transient after a reach. Switch the time reference and compare the individual traces with their mean.</p>
+            <div class="bench-switch" role="group" aria-label="Signal time reference"><button type="button" data-reference="start" aria-pressed="true">Trial start</button><button type="button" data-reference="reach" aria-pressed="false">Reach onset</button></div>
+            <button type="button" id="mean-toggle" aria-pressed="true"><i aria-hidden="true"></i> Show mean trace</button>
+            <a class="bench-study" href="https://github.com/BelloneLab/pyBer" target="_blank" rel="noopener noreferrer">Explore pyBer ↗</a>
+          </div>
+          <div class="bench-instrument">
+            <div class="bench-display-head"><strong>Fluorescence <small>(a.u.)</small></strong><span>Synthetic data</span></div>
+            <svg class="bench-chart signal-chart" viewBox="0 0 600 240" role="img" aria-labelledby="signal-plot-title">
+              <title id="signal-plot-title">Six simulated fluorescence traces plotted relative to trial start</title>
+              <defs><clipPath id="signal-clip"><rect x="48" y="25" width="518" height="139"/></clipPath></defs>
+              <g class="bench-axis"><path d="M48 42H566 M48 96H566 M48 150H566 M48 175H566"/></g>
+              <g class="chart-label"><text x="38" y="47" text-anchor="end">1.0</text><text x="38" y="101" text-anchor="end">0.5</text><text x="38" y="155" text-anchor="end">0</text></g>
+              <g id="signal-traces" clip-path="url(#signal-clip)"></g>
+              <g id="signal-events"></g><g id="signal-axis" class="chart-label"></g>
+            </svg>
+            <p id="signal-note" class="signal-note" aria-live="polite">The six reaches occur at different times after trial start. The ticks mark each reach.</p>
+          </div>
+        </article>
+      </div>
     </section>
     <section class="section container" id="research" aria-labelledby="research-title">
       <div class="section-heading"><div><p class="eyebrow">01 / RESEARCH</p><h2 id="research-title">Three research questions.</h2></div><p class="section-intro">How does the brain turn experience into adaptive behavior? My work brings together molecular neuroscience, circuit physiology and quantitative behavior.</p></div>
